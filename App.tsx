@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  SafeAreaView,
   View,
   Text,
   FlatList,
@@ -8,6 +7,7 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useExpenses } from './hooks/useExpenses';
 import { ExpenseItem } from './components/ExpenseItem';
 import { AddExpenseModal } from './components/AddExpenseModal';
