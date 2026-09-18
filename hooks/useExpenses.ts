@@ -4,7 +4,6 @@ import { Expense } from '../types';
 
 const STORAGE_KEY = 'expense-tracker:expenses';
 
-// Small helper so we don't need a UUID library for a one-day project.
 function generateId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 }
