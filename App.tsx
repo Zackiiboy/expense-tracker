@@ -24,6 +24,7 @@ export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
+ <SafeAreaProvider>
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
 
@@ -64,6 +65,8 @@ export default function App() {
         onSubmit={addExpense}
       />
     </SafeAreaView>
+     </SafeAreaProvider>
+
   );
 }
 
