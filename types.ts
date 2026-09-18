@@ -31,3 +31,18 @@ export const CATEGORY_COLORS: Record<Category, string> = {
   shopping: '#EC4899',
   other: '#6B7280',
 };
+
+export type GroupMode = 'date' | 'month' | 'category';
+
+// "2026-09" — sortable as a plain string, unlike a locale-formatted label.
+export function getMonthKey(iso: string): string {
+  const d = new Date(iso);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+}
+
+export function formatMonthLabel(monthKey: string): string {
+  const [year, month] = monthKey.split('-').map(Number);
+  const d = new Date(year, month - 1, 1);
+  const label = d.toLocaleDateString('nl-BE', { month: 'long', year: 'numeric' });
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}
